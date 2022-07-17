@@ -1,0 +1,61 @@
+body(data-mode="dark").p-flex-col
+	header.banner
+		h1 Gen Art with Conway's Game of Life
+		p#intro Get started by clicking on the cells to create alive cells, or click on the 'create' button to randomly create a bunch of alive cells.
+			
+	main.p-flex-col
+		section#gameoflife.gol(data-grid="on" data-shape="square" data-td="color")
+		aside#controls.gol-controls(data-hue="01" data-form="square")
+			button(type="button"  title="Make random alive cells")#create.p-btn Create
+			button(type="button" disabled title="Start alive cells evolution")#start.p-btn Evolve
+			button(type="button" disabled title="Kill all alive cells")#reset.p-btn Reset
+
+			#speed.p-block
+				input(type="range" id="speedrange" name="speed"  min="100" max="500" value="300" step="1" disabled  title="Change evolution speed")
+				label(for="speedrange")
+
+			ul.p-list.grid-type
+				li(data-type="square" title="Squared cells").grid-type_square
+					input(type="radio" id="square" name="grid type" value="square grid" checked="checked")
+					label(for="square")
+				li(data-type="circle" title="Circular cells").grid-type_circle
+					input(type="radio" id="circle" name="grid type" value="circle grid")
+					label(for="circle")
+				li(data-type="triangle" title="Triangular cells").grid-type_triangle
+					input(type="radio" id="triangle" name="grid type" value="triangle grid")
+					label(for="triangle")
+
+			button(type="button" title="Toggle grid")#grid.p-btn Grid off
+			button(type="button" title="Toggle mode")#mode.p-btn Light mode
+
+			ul.p-list.color-type
+				li(data-color="01" title="Purple cells").color-type_purple
+					input(type="radio" id="purple" name="color type" value="purple color" checked="checked")
+					label(for="purple")
+				li(data-color="02" title="Pink cells").color-type_pink
+					input(type="radio" id="pink" name="color type" value="pink color")
+					label(for="pink")
+				li(data-color="03" title="Blue cells").color-type_blue
+					input(type="radio" id="blue" name="color type" value="blue color")
+					label(for="blue")
+				li(data-color="04" title="Green cells").color-type_green
+					input(type="radio" id="green" name="color type" value="green color")
+					label(for="green")
+				li(data-color="05" title="Yellow cells").color-type_yellow
+					input(type="radio" id="yellow" name="color type" value="yellow color")
+					label(for="yellow")
+				li(data-color="06" title="White cells").color-type_white
+					input(type="radio" id="white" name="color type" value="white color")
+					label(for="white")
+				li(data-color="emoji" title="Type emoji or character for cells").color-type_emoji
+					input(type="radio" id="emoji" name="color type" value="emoji")
+					label(for="emoji") 
+						input#text(type="text" name="emoji-text" minlength="1" maxlength="2" size="2" value="😎")
+
+	footer.credit
+		p.p-text by 
+			a.credit_link(href="https://www.ilithya.rocks/" target="blank" rel="external noopener") ilithya.rocks 
+		p.p-text with tut aid by 
+			a.credit_link(href="https://javascript.plainenglish.io/the-game-of-life-using-javascript-fc1aaec8274f" target="blank" rel="external noopener") Rob Tomlin 
+			| & source of 
+			a.credit_link(href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="blank" rel="external noopener") Wikipedia
